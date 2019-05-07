@@ -1,0 +1,43 @@
+<protocol name="lorie">
+    <interface name="lorie_input" version="1">
+		<enum name="state">
+			<entry name="up" value="0" />
+			<entry name="down" value="1" />
+			<entry name="motion" value="2" />
+		</enum>
+		<enum name="button">
+			<description summary="">This enum is synchronized with X11 enum</description>
+			<entry name="left" value="1" />
+			<entry name="middle" value="2" />
+			<entry name="right" value="3" />
+		</enum>
+		<request name="pointer">
+			<arg name="state" type="int" />
+			<arg name="button" type="int" />
+			<arg name="x" type="int" />
+			<arg name="y" type="int" />
+		</request>
+		<request name="key">
+			<arg name="state" type="int" />
+			<arg name="key" type="int" />
+		</request>
+    </interface>
+    <interface name="lorie_output" version="1">
+		<request name="get_current_buffer" />
+		<request name="resolution_change">
+			<arg name="x" type="int" />
+			<arg name="y" type="int" />
+		</request>
+		<event name="buffer_change_fd">
+			<arg name="fd" type="fd" />
+			<arg name="w" type="int" />
+			<arg name="h" type="int" />
+		</event>
+		<event name="damage">
+			<arg name="x0" type="int" />
+			<arg name="y0" type="int" />
+			<arg name="x1" type="int" />
+			<arg name="y1" type="int" />
+		</event>
+    </interface>
+</protocol>

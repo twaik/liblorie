@@ -1,0 +1,3 @@
+option('build_tests', type: 'boolean', value: 'false')
+option('android_client', type: 'boolean', value: 'false')
+option('xorg_module', type: 'boolean', value: 'false')
